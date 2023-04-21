@@ -5,6 +5,10 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASRMDataManager", "ASRMDataManager\ASRMDataManager.csproj", "{4E18189E-EDC7-47B1-83D5-92E1F0DC84C8}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ASRMData", "ASRMData\ASRMData.sqlproj", "{DE6CE0D8-3B4A-41D7-8BF8-1BACAC47CF7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASRMDesktopUserInterface", "ASRMDesktopUserInterface\ASRMDesktopUserInterface.csproj", "{04D7E142-260F-400A-B172-5E563C11FB70}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,16 @@ Global
 		{4E18189E-EDC7-47B1-83D5-92E1F0DC84C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E18189E-EDC7-47B1-83D5-92E1F0DC84C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E18189E-EDC7-47B1-83D5-92E1F0DC84C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE6CE0D8-3B4A-41D7-8BF8-1BACAC47CF7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE6CE0D8-3B4A-41D7-8BF8-1BACAC47CF7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE6CE0D8-3B4A-41D7-8BF8-1BACAC47CF7B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DE6CE0D8-3B4A-41D7-8BF8-1BACAC47CF7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE6CE0D8-3B4A-41D7-8BF8-1BACAC47CF7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE6CE0D8-3B4A-41D7-8BF8-1BACAC47CF7B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{04D7E142-260F-400A-B172-5E563C11FB70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04D7E142-260F-400A-B172-5E563C11FB70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04D7E142-260F-400A-B172-5E563C11FB70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04D7E142-260F-400A-B172-5E563C11FB70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
