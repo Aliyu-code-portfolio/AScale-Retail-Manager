@@ -1,4 +1,6 @@
-﻿using ASRMDesktopUserInterface.Models;
+﻿using ASRMDesktopUI.Library;
+using ASRMDesktopUI.Library.Api;
+using ASRMDesktopUserInterface.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -13,10 +15,12 @@ namespace ASRMDesktopUserInterface.Helpers
     public class ApiHelper : IApiHelper
     {
         private HttpClient apiClient;
+        private ILoggedInUserModel _loggedInUserModel;
 
-        public ApiHelper()
+        public ApiHelper(ILoggedInUserModel loggedInUserModel)
         {
             IntializeClient();
+            _loggedInUserModel = loggedInUserModel;
         }
 
         private void IntializeClient()
@@ -46,6 +50,31 @@ namespace ASRMDesktopUserInterface.Helpers
                 }
                 else
                 {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+        public async Task GetLoggedInUserInfo(string token)
+        {
+            apiClient.DefaultRequestHeaders.Clear();
+            apiClient.DefaultRequestHeaders.Accept.Clear();
+            apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            apiClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+
+            using(HttpResponseMessage response = await apiClient.GetAsync("/api/User"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsAsync<LoggedInUserModel>();
+                    _loggedInUserModel.CreatedDate = result.CreatedDate;
+                    _loggedInUserModel.EmailAddress = result.EmailAddress;
+                    _loggedInUserModel.FirstName = result.FirstName;
+                    _loggedInUserModel.LastName = result.LastName;
+                    _loggedInUserModel.Id = result.Id;
+                    _loggedInUserModel.Token= token;
+                }
+                else 
+                { 
                     throw new Exception(response.ReasonPhrase);
                 }
             }

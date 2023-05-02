@@ -1,4 +1,5 @@
-﻿using ASRMDesktopUserInterface.Helpers;
+﻿using ASRMDesktopUI.Library.Api;
+using ASRMDesktopUserInterface.Helpers;
 using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
@@ -12,23 +13,15 @@ namespace ASRMDesktopUserInterface.ViewModels
     {
 		private string _userName;
 		private string _password;
-		private IApiHelper _apiHelper;
+        private bool _isErrorVisible;
+        private string _errorMessage;
+        private IApiHelper _apiHelper;
 
         public LoginViewModel(IApiHelper apiHelper)
         {
             _apiHelper = apiHelper;
         }
 
-        public string Password
-		{
-			get { return _password; }
-			set 
-			{ 
-				_password = value;
-				NotifyOfPropertyChange(() => Password);
-                NotifyOfPropertyChange(() => CanLogIn);
-            }
-		}
 
 		public string UserName
 		{
@@ -40,6 +33,47 @@ namespace ASRMDesktopUserInterface.ViewModels
 				NotifyOfPropertyChange(() => CanLogIn);
 			}
 		}
+        public string Password
+		{
+			get { return _password; }
+			set 
+			{ 
+				_password = value;
+				NotifyOfPropertyChange(() => Password);
+                NotifyOfPropertyChange(() => CanLogIn);
+            }
+		}
+		
+
+		public string ErrorMessage
+        {
+			get { return _errorMessage; }
+			set 
+			{ 
+				_errorMessage = value;
+                NotifyOfPropertyChange(() => IsErrorVisible);
+                NotifyOfPropertyChange(()=>ErrorMessage);
+			}
+		}
+
+		public bool IsErrorVisible
+        {
+			get 
+			{ 
+				bool output=false;
+				if(ErrorMessage?.Length > 0)
+				{
+					output = true;
+				}
+				return output;
+			}
+			/*set 
+			{ 
+				_isErrorMessage = value; 
+				
+			}*/
+		}
+
 		public bool CanLogIn
 		{
 			get{
@@ -55,11 +89,13 @@ namespace ASRMDesktopUserInterface.ViewModels
 		{
 			try
 			{
+				ErrorMessage = "";
 				var result = await _apiHelper.Authenticate(UserName, Password);
+				await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
 			}
 			catch (Exception ex)
 			{
-				Console.WriteLine(ex.Message);
+				ErrorMessage = ex.Message;
 			}
 		}
 

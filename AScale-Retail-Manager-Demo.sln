@@ -7,7 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASRMDataManager", "ASRMData
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ASRMData", "ASRMData\ASRMData.sqlproj", "{DE6CE0D8-3B4A-41D7-8BF8-1BACAC47CF7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASRMDesktopUserInterface", "ASRMDesktopUserInterface\ASRMDesktopUserInterface.csproj", "{04D7E142-260F-400A-B172-5E563C11FB70}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASRMDesktopUI", "ASRMDesktopUserInterface\ASRMDesktopUI.csproj", "{04D7E142-260F-400A-B172-5E563C11FB70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASRMDataManager.Library", "ASRMDataManager.Library\ASRMDataManager.Library.csproj", "{F228DC25-3B9D-474F-B537-1F13F0B1BE12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASRMDesktopUI.Library", "ASRMDesktopUI.Library\ASRMDesktopUI.Library.csproj", "{5FCFF300-2421-4DA8-8F50-21AF29BAD8B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +33,14 @@ Global
 		{04D7E142-260F-400A-B172-5E563C11FB70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04D7E142-260F-400A-B172-5E563C11FB70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04D7E142-260F-400A-B172-5E563C11FB70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F228DC25-3B9D-474F-B537-1F13F0B1BE12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F228DC25-3B9D-474F-B537-1F13F0B1BE12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F228DC25-3B9D-474F-B537-1F13F0B1BE12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F228DC25-3B9D-474F-B537-1F13F0B1BE12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FCFF300-2421-4DA8-8F50-21AF29BAD8B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FCFF300-2421-4DA8-8F50-21AF29BAD8B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FCFF300-2421-4DA8-8F50-21AF29BAD8B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FCFF300-2421-4DA8-8F50-21AF29BAD8B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

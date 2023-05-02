@@ -1,4 +1,6 @@
-﻿using ASRMDesktopUserInterface.Helpers;
+﻿using ASRMDesktopUI.Library;
+using ASRMDesktopUI.Library.Api;
+using ASRMDesktopUserInterface.Helpers;
 using ASRMDesktopUserInterface.ViewModels;
 using Caliburn.Micro;
 using System;
@@ -31,8 +33,8 @@ namespace ASRMDesktopUserInterface
             _container
                 .Singleton<IWindowManager, WindowManager>()
                 .Singleton<IEventAggregator, EventAggregator>()
-                .Singleton<IApiHelper, ApiHelper>();
-
+                .Singleton<IApiHelper, ApiHelper>()
+                .Singleton<ILoggedInUserModel, LoggedInUserModel>();
 
             GetType().Assembly.GetTypes()
                 .Where(type => type.IsClass)
